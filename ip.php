@@ -1,4 +1,13 @@
-<?php $ip = $_SERVER['REMOTE_ADDR']; ?>
+<?php $ip = $_SERVER['REMOTE_ADDR'];
+
+if (!empty($_GET['api'])){
+
+    header('Access-Control-Allow-Origin: *');
+    echo json_encode(["ip"=>$ip]);
+
+} else {
+
+?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -26,3 +35,5 @@ a {
 }
 
 </style>
+
+<?php } ?>
